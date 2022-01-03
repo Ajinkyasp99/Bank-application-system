@@ -41,7 +41,11 @@ def bank_balance(accNo):
                   ]
 
     acc_data = list(collection.aggregate(__pieline__))
-    return f" Your balance is {acc_data[0]['balance']}"
+    
+    if len(acc_data)!=1:
+        return "Please check your account number"
+    else:
+        return f" Your balance is {acc_data[0]['balance']}"
 
 
 def withdrawl(data):
