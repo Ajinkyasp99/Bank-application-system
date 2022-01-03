@@ -18,7 +18,6 @@ def get_register():
 def register():
     data = {"Name":request.form["name"],"Gmail":request.form["gmail"],"Phone no":request.form["phone"]}
     result = fun.bankuser(data)
-    print (result)
     return render_template('register.html', display = str(result))
 
 
