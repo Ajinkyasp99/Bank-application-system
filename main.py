@@ -42,7 +42,7 @@ def to_deposit():
     data ={"accNo": request.form["accNo"],"deposit_amt":request.form["deposit_amt"]}
     resp = fun.deposit(data)
     return render_template("deposit.html",display = str(resp))
-# ,
+
 
 @app.route("/check_bal", methods = ["GET"])
 def check_bal():

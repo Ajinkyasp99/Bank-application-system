@@ -57,12 +57,13 @@ def withdrawl(data):
                   ]
 
     acc_data = list(collection.aggregate(__pieline__))
-    balance = acc_data[0]['balance']
+    
     if len(acc_data)!=1:
         return "Please check your account number"
-    elif int(data['withdraw_bal']) > int(balance):
+    elif int(data['withdraw_bal']) > int(acc_data[0]['balance']):
         return "Your balance is insufficient"
     else:
+        balance = acc_data[0]['balance']
         update = int(balance) - int(data['withdraw_bal'])
         collection.update_one({'accNo':data['accNo']},{'$set':{'balance': update}})
         return f" Your withrawal is successful and remaining balance is {update}"
