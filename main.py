@@ -6,7 +6,7 @@ import random
 
 app = flask.Flask(__name__)
 
-@app.route("/home",methods = ['GET'])
+@app.route("/",methods = ['GET'])
 def home():
     return render_template("home.html")
 
